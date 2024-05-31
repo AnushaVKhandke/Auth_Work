@@ -1,0 +1,18 @@
+<div class="container">
+    <h2>{{isLoggedIn ? 'Login' : 'Signup'}} Here</h2>
+    <form class="form-area" #auth="ngForm" (ngSubmit)="onSubmitted(auth)">
+        
+            <label for="">Email Address:</label>
+            <input type="email" id="email" name="email" placeholder="email address" ngModel required>
+        
+            <label for="">Password:</label>
+            <input type="password" name="password" placeholder="password" ngModel required minlength="3">
+        
+        
+       <button type="submit" class="submit" [disabled]="auth.invalid">{{isLoggedIn ? 'Login' : 'Signup'}}</button>
+
+        <p>{{isLoggedIn ? 'Do not have an account yet?' : 'Already have an account'}}
+            <button class="register" type="submit" (click)="onSwitch()"><b>{{isLoggedIn ? 'Register here' : 'Login Here'}}</b></button>
+        </p>
+    </form>
+</div>
